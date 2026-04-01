@@ -1,4 +1,144 @@
 <!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DINX GLOBAL | The Ultimate Empire Portal</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root { --gold: #d4af37; --dark: #050505; --glass: rgba(0, 0, 0, 0.6); }
+        
+        body { 
+            /* Branded Background Image */
+            background-image: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url('https://images.unsplash.com/photo-1618220179428-22790b461013?q=80&w=2000');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: #fff; 
+            font-family: 'Poppins', sans-serif; 
+            margin: 0; 
+            overflow-x: hidden; 
+        }
+        
+        /* Premium Header & Professional Logo */
+        .header { padding: 100px 20px 60px; text-align: center; border-bottom: 1px solid rgba(212, 175, 55, 0.3); }
+        
+        /* PROFESSIONAL LOGO STYLING */
+        .logo { 
+            font-family: 'Cinzel', serif; /* VIP Font */
+            font-size: 90px; 
+            font-weight: 700; 
+            letter-spacing: 25px; 
+            color: var(--gold); 
+            text-shadow: 0 0 50px rgba(212, 175, 55, 0.6); 
+            margin: 0; 
+            text-transform: uppercase;
+        }
+        
+        .search-box { margin-top: 40px; width: 80%; max-width: 600px; padding: 18px; border-radius: 50px; border: 1px solid var(--gold); background: rgba(0,0,0,0.5); color: white; text-align: center; font-size: 16px; outline: none; backdrop-filter: blur(5px); }
+
+        /* The Empire Grid with Glass-morphism */
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; padding: 60px; max-width: 1400px; margin: auto; }
+        
+        .card { 
+            background: var(--glass); /* Translucent Glass */
+            backdrop-filter: blur(15px); /* Strong Blur */
+            border: 1px solid rgba(212, 175, 55, 0.2); 
+            border-radius: 30px; 
+            padding: 40px; 
+            transition: 0.5s; 
+            position: relative; 
+            text-align: left; 
+        }
+        .card:hover { border-color: var(--gold); transform: translateY(-10px); box-shadow: 0 20px 60px rgba(0,0,0,0.9); }
+        .card h2 { color: var(--gold); margin-top: 0; letter-spacing: 3px; font-family: 'Cinzel', serif; font-size: 26px; }
+        .card p { color: #ccc; font-size: 14px; margin-bottom: 30px; line-height: 1.6; }
+
+        /* Icon Buttons */
+        .brands { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 25px; }
+        .tag { background: rgba(255, 255, 255, 0.1); padding: 5px 12px; border-radius: 8px; font-size: 12px; border: 1px solid rgba(255, 255, 255, 0.2); color: #fff; }
+
+        .btn { background: var(--gold); color: #000; width: 100%; padding: 16px; border: none; border-radius: 15px; font-weight: bold; cursor: pointer; text-transform: uppercase; letter-spacing: 2px; transition: 0.3s; font-size: 14px; }
+        .btn:hover { box-shadow: 0 0 30px rgba(212, 175, 55, 0.8); background: #fff; }
+
+        /* VIP Concierge Button */
+        .vip-float { position: fixed; bottom: 40px; right: 40px; background: var(--gold); width: 70px; height: 70px; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 0 30px rgba(212, 175, 55, 0.7); cursor: pointer; z-index: 9999; border: 2px solid #fff; font-size: 30px; color: black; transition: 0.3s; }
+        .vip-float:hover { transform: scale(1.1); }
+    </style>
+</head>
+<body>
+
+    <button class="vip-float" onclick="alert('DINX Concierge is connecting to your Private Assistant...')">👑</button>
+
+    <div class="header">
+        <h1 class="logo">DINX</h1>
+        <p style="letter-spacing: 8px; color: #ccc; text-transform: uppercase; font-size: 14px; margin-top: 15px;">GLOBAL CONCIERGE | WORLDWIDE PROTOCOL</p>
+        <input type="text" class="search-box" placeholder="Search Global Products, Flights, or Hotels...">
+    </div>
+
+    <div class="grid">
+        <div class="card">
+            <h2>DINX DINE</h2>
+            <p>Global Delivery & Table Reservations. The finest culinary experiences.</p>
+            <div class="brands">
+                <span class="tag">Foodpanda</span> <span class="tag">UberEats</span> <span class="tag">Deliveroo</span> <span class="tag">Monal</span>
+            </div>
+            <button class="btn">Order / Reserve</button>
+        </div>
+
+        <div class="card">
+            <h2>DINX PAY</h2>
+            <p>Instant Transfers & Crypto Gateway. Secure financial solutions.</p>
+            <div class="brands">
+                <span class="tag">JazzCash</span> <span class="tag">PayPal</span> <span class="tag">Binance</span> <span class="tag">Stripe</span>
+            </div>
+            <button class="btn" style="background: white;">Access Wallet</button>
+        </div>
+
+        <div class="card">
+            <h2>DINX STAY</h2>
+            <p>Billionaire Penthouses & 5-Star Villas. Luxury accommodations.</p>
+            <div class="brands">
+                <span class="tag">Booking.com</span> <span class="tag">Airbnb</span> <span class="tag">Marriott</span> <span class="tag">Hilton</span>
+            </div>
+            <button class="btn">Book Protocol</button>
+        </div>
+
+        <div class="card">
+            <h2>DINX TRAVEL</h2>
+            <p>Private Jets & International Flights. Worldwide travel concierge.</p>
+            <div class="brands">
+                <span class="tag">Emirates</span> <span class="tag">Qatar Air</span> <span class="tag">PIA</span> <span class="tag">Skyscanner</span>
+            </div>
+            <button class="btn">Search Flights</button>
+        </div>
+
+        <div class="card">
+            <h2>DINX LUXE</h2>
+            <p>Elite Fashion, Watches & Tech Mall. The ultimate shopping destination.</p>
+            <div class="brands">
+                <span class="tag">Amazon</span> <span class="tag">Zara</span> <span class="tag">Rolex</span> <span class="tag">Gucci</span>
+            </div>
+            <button class="btn">Start Shopping</button>
+        </div>
+
+        <div class="card">
+            <h2>DINX ESTATE</h2>
+            <p>Buy Properties in Dubai, UK & Pakistan. Real estate investments.</p>
+            <div class="brands">
+                <span class="tag">Zameen</span> <span class="tag">Dubai RE</span> <span class="tag">London Homes</span>
+            </div>
+            <button class="btn">View Listings</button>
+        </div>
+    </div>
+
+    <footer style="padding: 80px; text-align: center; color: #888; font-size: 13px; border-top: 1px solid rgba(212, 175, 55, 0.2); background: rgba(0,0,0,0.8);">
+        © 2026 DINX PORTAL | AUTHORIZED GLOBAL DISTRIBUTOR | REGISTERED PROTOCOL | Pakistan • Dubai • London
+    </footer>
+
+</body>
+</html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
