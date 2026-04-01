@@ -3,57 +3,88 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DINX PORTAL | VIP Access</title>
+    <title>DINX GLOBAL | The Super App Portal</title>
     <style>
-        body {
-            background-color: #0a0a0a;
-            color: #d4af37; /* Gold Color */
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            text-align: center;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            height: 100vh;
-        }
-        .brand-logo {
-            font-size: 80px;
-            font-weight: bold;
-            letter-spacing: 15px;
-            text-shadow: 0 0 20px rgba(212, 175, 55, 0.5);
-            margin-bottom: 10px;
-        }
-        .tagline {
-            font-size: 18px;
-            letter-spacing: 5px;
-            color: #ffffff;
-            text-transform: uppercase;
-            margin-bottom: 50px;
-        }
-        .protocol-btn {
-            background: transparent;
-            border: 2px solid #d4af37;
-            color: #d4af37;
-            padding: 15px 40px;
-            font-size: 20px;
-            cursor: pointer;
-            transition: 0.5s;
-            text-decoration: none;
-            text-transform: uppercase;
-        }
-        .protocol-btn:hover {
-            background: #d4af37;
-            color: #000;
-            box-shadow: 0 0 30px #d4af37;
-        }
+        :root { --gold: #d4af37; --dark: #0a0a0a; --gray: #1a1a1a; --text: #ffffff; }
+        body { background-color: var(--dark); color: var(--text); font-family: 'Inter', sans-serif; margin: 0; padding: 0; }
+        
+        /* Premium Header */
+        .navbar { background: rgba(0,0,0,0.9); padding: 20px; border-bottom: 2px solid var(--gold); position: sticky; top: 0; z-index: 1000; }
+        .nav-logo { font-size: 35px; font-weight: 900; letter-spacing: 8px; color: var(--gold); }
+        .tagline { font-size: 12px; letter-spacing: 4px; color: #888; text-transform: uppercase; }
+
+        /* Super App Grid */
+        .main-container { max-width: 1200px; margin: 40px auto; padding: 20px; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; }
+
+        .app-card { background: var(--gray); border-radius: 15px; padding: 30px; text-align: left; border: 1px solid #333; transition: 0.5s; position: relative; overflow: hidden; }
+        .app-card:hover { border-color: var(--gold); transform: scale(1.03); box-shadow: 0 10px 30px rgba(212, 175, 55, 0.2); }
+        .app-card h2 { color: var(--gold); margin: 0 0 10px 0; font-size: 24px; }
+        .app-card p { color: #ccc; font-size: 14px; line-height: 1.6; margin-bottom: 20px; }
+        
+        .action-btn { background: var(--gold); color: #000; border: none; padding: 12px 25px; font-weight: bold; border-radius: 5px; cursor: pointer; text-transform: uppercase; width: 100%; }
+        
+        /* Status Badge */
+        .badge { position: absolute; top: 15px; right: 15px; background: #222; color: var(--gold); padding: 5px 10px; font-size: 10px; border-radius: 20px; border: 1px solid var(--gold); }
+
+        .footer { padding: 50px; border-top: 1px solid #333; color: #666; font-size: 13px; }
     </style>
 </head>
 <body>
-    <div class="brand-logo">DINX</div>
-    <div class="tagline">The Elite Legacy | Protocol Portal</div>
-    <div>
-        <a href="#" class="protocol-btn">Enter VIP Lounge</a>
+
+    <div class="navbar">
+        <div class="nav-logo">DINX</div>
+        <div class="tagline">Global Lifestyle & Financial Empire</div>
     </div>
+
+    <div class="main-container">
+        
+        <div class="app-card">
+            <span class="badge">LIVE CONNECT</span>
+            <h2>DINX DINE</h2>
+            <p>Order from Foodpanda, KFC, McDonald's & local elites. The fastest delivery protocol.</p>
+            <button class="action-btn">Order Food</button>
+        </div>
+
+        <div class="app-card">
+            <span class="badge">SECURE</span>
+            <h2>DINX PAY</h2>
+            <p>Powered by JazzCash & Nayapay. Instant global transfers and bill payments.</p>
+            <button class="action-btn" style="background: #ffffff;">Pay Now</button>
+        </div>
+
+        <div class="app-card">
+            <span class="badge">PREMIUM</span>
+            <h2>DINX AIR</h2>
+            <p>Book PIA, Emirates, or Private Jets. Global travel concierge at your service.</p>
+            <button class="action-btn">Book Flight</button>
+        </div>
+
+        <div class="app-card">
+            <span class="badge">EXCLUSIVE</span>
+            <h2>DINX LUXE</h2>
+            <p>Luxury dresses, Swiss watches, and elite tech. The billionaire's mall.</p>
+            <button class="action-btn">Start Shopping</button>
+        </div>
+
+        <div class="app-card">
+            <span class="badge">GLOBAL</span>
+            <h2>DINX ESTATE</h2>
+            <p>Buy properties in Dubai, London, or Islamabad. Luxury stays & hotels.</p>
+            <button class="action-btn">Explore</button>
+        </div>
+
+        <div class="app-card">
+            <span class="badge">4K HDR</span>
+            <h2>DINX PLAY</h2>
+            <p>Netflix, Spotify, and YouTube Premium integrations. Non-stop entertainment.</p>
+            <button class="action-btn" style="background: #e50914; color: #fff;">Watch Now</button>
+        </div>
+
+    </div>
+
+    <div class="footer">
+        © 2026 DINX PORTAL GLOBAL | Authorized Partner of Global Brands | Pakistan • Dubai • London
+    </div>
+
 </body>
 </html>
