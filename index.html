@@ -3,184 +3,98 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DINX GLOBAL | THE COMPLETE EMPIRE</title>
+    <title>DINX GLOBAL | AI REMOTE PORTAL</title>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
-        :root { --gold: #d4af37; --dark: #050505; --card: rgba(255,255,255,0.04); }
-        body { background: var(--dark); color: #fff; font-family: 'Poppins', sans-serif; margin: 0; overflow-x: hidden; }
-        
-        /* Header & Profile Section */
-        .header { background: #000; padding: 10px 20px; display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid var(--gold); position: sticky; top: 0; z-index: 2000; }
-        .logo { font-family: 'Cinzel'; color: var(--gold); font-size: 24px; letter-spacing: 5px; margin: 0; }
-        
-        .user-area { display: flex; align-items: center; gap: 12px; }
-        .profile-pic-box { 
-            width: 40px; height: 40px; border-radius: 50%; border: 2px solid var(--gold); 
-            overflow: hidden; cursor: pointer; background: #222; position: relative;
-        }
-        .profile-pic-box img { width: 100%; height: 100%; object-fit: cover; }
-        #imageInput { display: none; }
-
-        /* Main Content Grid */
+        :root { --gold: #d4af37; --dark: #050505; --card: rgba(255,255,255,0.06); }
+        body { background: var(--dark); color: #fff; font-family: 'Poppins', sans-serif; margin: 0; transition: 0.5s; }
+        .header { background: #000; padding: 15px 20px; display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid var(--gold); sticky; top:0; z-index:100; }
+        .logo { font-family: 'Cinzel'; color: var(--gold); font-size: 24px; letter-spacing: 5px; cursor: pointer; }
         .container { padding: 20px; max-width: 1200px; margin: auto; }
-        .section-header { color: var(--gold); font-family: 'Cinzel'; font-size: 20px; border-left: 4px solid var(--gold); padding-left: 15px; margin: 30px 0 15px 0; background: rgba(212,175,55,0.05); padding-top: 5px; padding-bottom: 5px; }
-        
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 15px; }
-        .card { background: var(--card); border: 1px solid #222; border-radius: 15px; padding: 20px; text-align: center; transition: 0.3s; }
-        .card:hover { border-color: var(--gold); transform: translateY(-3px); }
-        .card h3 { margin: 5px 0; font-size: 18px; }
-        .card p { font-size: 12px; color: #888; }
-        
-        .btn { background: var(--gold); color: #000; padding: 12px; border: none; border-radius: 10px; width: 100%; cursor: pointer; font-weight: bold; margin-top: 15px; text-transform: uppercase; font-size: 11px; }
-
-        /* Booking Modal (The "Portion" Page) */
-        .modal { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.95); z-index: 5000; display: none; align-items: center; justify-content: center; }
-        .modal-content { background: #111; border: 1px solid var(--gold); width: 90%; max-width: 450px; padding: 25px; border-radius: 20px; text-align: center; position: relative; }
-        .close-btn { position: absolute; top: 15px; right: 20px; color: var(--gold); font-size: 25px; cursor: pointer; }
-
-        /* Secret Revenue Panel */
-        #admin-panel { position: fixed; bottom: 20px; left: 20px; background: #000; border: 2px solid var(--gold); border-radius: 15px; padding: 20px; display: none; z-index: 4000; width: 240px; box-shadow: 0 0 30px #000; }
-        #admin-trigger { position: fixed; top: 0; left: 0; width: 30px; height: 30px; z-index: 10000; cursor: pointer; }
-
-        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-        .container { animation: fadeIn 0.8s ease; }
+        .section-header { color: var(--gold); font-family: 'Cinzel'; font-size: 18px; border-left: 5px solid var(--gold); padding-left: 15px; margin: 30px 0 15px; text-transform: uppercase; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+        .card { background: var(--card); border: 1px solid #222; border-radius: 15px; padding: 25px; text-align: center; transition: 0.3s; }
+        .btn { background: var(--gold); color: #000; padding: 12px; border: none; border-radius: 8px; width: 100%; cursor: pointer; font-weight: bold; margin-top: 15px; text-transform: uppercase; font-size: 11px; }
+        #search-box { width: 100%; padding: 12px; border-radius: 10px; border: 1px solid var(--gold); background: #111; color: #fff; margin-bottom: 20px; display: none; font-family: 'Poppins'; }
+        .promo-banner { background: var(--gold); color: #000; text-align: center; padding: 5px; font-weight: bold; font-size: 12px; display: none; }
     </style>
 </head>
 <body>
 
-    <div id="admin-trigger" onclick="toggleAdmin()"></div>
+    <div id="promo" class="promo-banner">LOADING SPECIAL OFFERS...</div>
 
     <div class="header">
         <div class="logo">DINX</div>
-        <div class="user-area">
-            <span id="userName" style="font-size: 11px; color: #888;">ID: DINX_052</span>
-            <label for="imageInput" class="profile-pic-box">
-                <img id="profilePreview" src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="Profile">
-            </label>
-            <input type="file" id="imageInput" accept="image/*" onchange="uploadPhoto(event)">
-        </div>
+        <div style="font-size: 10px; color: var(--gold);" id="user-id">ID: DINX_052</div>
     </div>
 
     <div class="container">
-        
-        <div class="section-header">AIRLINES & TRAVEL</div>
+        <input type="text" id="search-box" placeholder="Search flights or brands...">
+
+        <div class="section-header">Airlines & Global Booking</div>
         <div class="grid">
             <div class="card">
-                <h3>Emirates</h3>
-                <p>Dubai • London • New York</p>
-                <button class="btn" onclick="openFlight('Emirates', '$1,200', '08:45 AM', '30KG Bag • WiFi • Meal', 'https://www.emirates.com')">View Flight Details</button>
-            </div>
-            <div class="card">
-                <h3>Qatar Airways</h3>
-                <p>Doha • Paris • Singapore</p>
-                <button class="btn" onclick="openFlight('Qatar Airways', '$1,050', '11:20 PM', '40KG Bag • Luxury Suite', 'https://www.qatarairways.com')">View Flight Details</button>
+                <h3 id="air-name">Emirates</h3>
+                <p>Departure: <span id="air-time" style="color:var(--gold)">--:--</span></p>
+                <h2 id="air-price" style="margin:10px 0;">$0</h2>
+                <button class="btn">Book Now</button>
             </div>
         </div>
 
-        <div class="section-header">FOOD & DINING BRANDS</div>
+        <div class="section-header">Food & Dining</div>
         <div class="grid">
             <div class="card">
-                <h3 style="color:#e41e26;">KFC</h3>
-                <p>Crispy Chicken & Zinger</p>
-                <button class="btn" onclick="orderBrand('KFC', 'https://www.kfcpakistan.com')">Order Now</button>
-            </div>
-            <div class="card">
-                <h3 style="color:#ffbc0d;">McDonald's</h3>
-                <p>Burgers & Happy Meals</p>
-                <button class="btn" onclick="orderBrand('McDonald\'s', 'https://www.mcdonalds.com.pk')">Order Now</button>
-            </div>
-            <div class="card">
-                <h3 style="color:#ff8200;">Hardee's</h3>
-                <p>Charbroiled Burgers</p>
-                <button class="btn" onclick="orderBrand('Hardee\'s', 'https://www.hardees.com.pk')">Order Now</button>
+                <h3>KFC Pakistan</h3>
+                <p>Status: <span id="kfc-status" style="font-weight:bold;">CHECKING...</span></p>
+                <button class="btn">Order Now</button>
             </div>
         </div>
-
-        <div class="section-header">FINANCE & ASSETS</div>
-        <div class="grid">
-            <div class="card">
-                <h3>Binance Trade</h3>
-                <p>USDT / BTC Market Live</p>
-                <button class="btn" style="background:#f3ba2f" onclick="window.open('https://www.binance.com')">Open Wallet</button>
-            </div>
-        </div>
-
-    </div>
-
-    <div id="flightModal" class="modal">
-        <div class="modal-content">
-            <span class="close-btn" onclick="closeModal()">&times;</span>
-            <h2 id="m-name" style="color:var(--gold); font-family:'Cinzel'; margin:0;">Airline</h2>
-            <hr style="border:0.5px solid #222; margin:15px 0;">
-            <p><strong>Timing:</strong> <span id="m-time">...</span></p>
-            <p><strong>Features:</strong> <span id="m-feats" style="font-size:12px; color:#aaa;">...</span></p>
-            <p><strong>Starting Price:</strong> <span id="m-price" style="color:#27ae60; font-weight:bold;">...</span></p>
-            <button id="m-link" class="btn">CONFIRM & BOOK TICKET</button>
-        </div>
-    </div>
-
-    <div id="admin-panel">
-        <h4 style="color:var(--gold); margin:0;">EMPIRE REVENUE</h4>
-        <div id="profit-count" style="font-size:28px; color:#27ae60; font-weight:bold; margin:10px 0;">$0.00</div>
-        <button class="btn" style="background:#fff" onclick="alert('Withdrawal Request Sent to Binance')">WITHDRAW FUNDS</button>
-        <button class="btn" style="background:red; color:#fff; margin-top:10px;" onclick="toggleAdmin()">CLOSE</button>
     </div>
 
     <script>
-        let revenue = 0;
+        const SHEET_CSV = "https://docs.google.com/spreadsheets/d/e/2PACX-1vSfLCFUuPgyj0FFO_zWgIEr3hZyordYhEx9EbJivjWR92jU9QLV8EYr5-2LOBPej3U52fbTfEu-kbSY/pub?output=csv";
 
-        // 1. Photo Upload & Persistence
-        function uploadPhoto(event) {
-            const reader = new FileReader();
-            reader.onload = function() {
-                document.getElementById('profilePreview').src = reader.result;
-                localStorage.setItem('dinx_user_img', reader.result);
-                alert("Profile Photo Updated!");
+        async function updateFromSheet() {
+            try {
+                const response = await fetch(SHEET_CSV);
+                const data = await response.text();
+                const rows = data.split('\n').map(row => row.split(','));
+
+                // Sheet Row 1: Search Bar Logic
+                if (rows[0][1].trim() === "ON") {
+                    document.getElementById('search-box').style.display = 'block';
+                } else {
+                    document.getElementById('search-box').style.display = 'none';
+                }
+
+                // Sheet Row 2: Emirates Price & Time
+                document.getElementById('air-price').innerText = rows[1][1];
+                document.getElementById('air-time').innerText = rows[1][2];
+
+                // Sheet Row 3: KFC Status
+                let kfc = document.getElementById('kfc-status');
+                kfc.innerText = rows[2][1];
+                kfc.style.color = (rows[2][1].trim() === "OPEN") ? "#27ae60" : "#e74c3c";
+
+                // Sheet Row 4: Promo Message
+                if (rows[3][1].trim() !== "") {
+                    document.getElementById('promo').style.display = 'block';
+                    document.getElementById('promo').innerText = rows[3][1];
+                }
+
+                // Sheet Row 5: Theme Color
+                let color = rows[4][1].trim();
+                document.documentElement.style.setProperty('--gold', color);
+
+                console.log("DINX Sync: Success");
+            } catch (error) {
+                console.error("Sync Error:", error);
             }
-            reader.readAsDataURL(event.target.files[0]);
         }
 
-        // 2. Flight Details Logic
-        function openFlight(name, price, time, feats, link) {
-            document.getElementById('m-name').innerText = name;
-            document.getElementById('m-price').innerText = price;
-            document.getElementById('m-time').innerText = time;
-            document.getElementById('m-feats').innerText = feats;
-            document.getElementById('m-link').onclick = function() {
-                processSale(price, link);
-            };
-            document.getElementById('flightModal').style.display = 'flex';
-        }
-
-        function closeModal() { document.getElementById('flightModal').style.display = 'none'; }
-
-        // 3. Revenue Engine
-        function processSale(priceStr, link) {
-            let val = parseInt(priceStr.replace('$', '').replace(',', ''));
-            revenue += (val * 0.10); // 10% Commission
-            document.getElementById('profit-count').innerText = '$' + revenue.toFixed(2);
-            alert("DINX SECURE: Booking Verified. Commission Logged.");
-            window.open(link, '_blank');
-        }
-
-        function orderBrand(brand, link) {
-            revenue += 5; // Flat $5 for Food
-            document.getElementById('profit-count').innerText = '$' + revenue.toFixed(2);
-            alert("Connecting to " + brand + " Server...");
-            window.open(link, '_blank');
-        }
-
-        // 4. Admin Secret
-        function toggleAdmin() {
-            const p = document.getElementById('admin-panel');
-            p.style.display = p.style.display === 'block' ? 'none' : 'block';
-        }
-
-        // Load Saved Photo on Refresh
-        window.onload = function() {
-            const saved = localStorage.getItem('dinx_user_img');
-            if(saved) document.getElementById('profilePreview').src = saved;
-        }
+        // Har 5 second baad sheet check karein (Live Update)
+        setInterval(updateFromSheet, 5000);
+        updateFromSheet();
     </script>
 </body>
 </html>
